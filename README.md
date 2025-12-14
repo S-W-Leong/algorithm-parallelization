@@ -360,19 +360,6 @@ For each iteration:
 
 ### Documentation Files
 
-#### `final_report.md`
-**Purpose:** Comprehensive analysis report of the parallel computing project.
-
-**Contents:**
-- Introduction and background
-- Jacobi method theory and mathematics
-- Implementation details (sequential and parallel)
-- Performance analysis with charts
-- Scalability discussion
-- Conclusions and insights
-- References
-This document provides in-depth technical analysis of the parallelization strategy, performance characteristics, and scalability of the implementation.
-
 #### `requirements.txt`
 **Purpose:** Lists Python package dependencies for the project.
 
