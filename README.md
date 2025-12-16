@@ -1,6 +1,6 @@
 # Jacobi Iterative Method - Parallel Computing Project
 
-This project implements and compares sequential and parallel versions of the Jacobi iterative method for solving systems of linear equations (Ax = b). The parallel implementation uses OpenMP for multi-threaded execution.
+This project implements and compares sequential and parallel versions of the Jacobi iterative method for solving systems of linear equations (Ax = b). The parallel implementation uses OpenMP for multi-threaded execution. 
 
 ## 📋 Table of Contents
 - [Overview](#overview)

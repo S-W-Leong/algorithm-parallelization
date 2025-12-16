@@ -6,12 +6,10 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <chrono>
 #include <iomanip>
 #include <omp.h>
 
 using namespace std;
-using namespace std::chrono;
 
 // Function to initialize a diagonally dominant matrix (ensures convergence)
 void initializeSystem(vector<vector<double>>& A, vector<double>& b, int n) {
@@ -167,13 +165,12 @@ int main() {
         // Sequential execution
         {
             vector<double> x(n, 0.0);
-            
-            auto start = high_resolution_clock::now();
+
+            double start = omp_get_wtime();
             int iterations = jacobiSequential(A, b, x, n, tolerance, maxIterations);
-            auto end = high_resolution_clock::now();
-            
-            auto duration = duration_cast<microseconds>(end - start);
-            double timeMs = duration.count() / 1000.0;
+            double end = omp_get_wtime();
+
+            double timeMs = (end - start) * 1000.0;
             seqTimes[s].push_back(timeMs);
             
             double residual = computeResidual(A, b, x, n);
@@ -200,13 +197,12 @@ int main() {
             }
             
             vector<double> x(n, 0.0);
-            
-            auto start = high_resolution_clock::now();
+
+            double start = omp_get_wtime();
             int iterations = jacobiParallel(A, b, x, n, tolerance, maxIterations, numThreads);
-            auto end = high_resolution_clock::now();
-            
-            auto duration = duration_cast<microseconds>(end - start);
-            double timeMs = duration.count() / 1000.0;
+            double end = omp_get_wtime();
+
+            double timeMs = (end - start) * 1000.0;
             parTimes[s][t].push_back(timeMs);
             
             double residual = computeResidual(A, b, x, n);

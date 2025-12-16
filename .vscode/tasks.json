@@ -16,7 +16,7 @@
         {
             "label": "Build and Run Active File with OpenMP (C)",
             "type": "shell",
-            "command": "clang -Xpreprocessor -fopenmp -I/opt/homebrew/opt/libomp/include -L/opt/homebrew/opt/libomp/lib -lomp -g -std=c11 '${file}' -o '${fileDirname}/${fileBasenameNoExtension}' && '${fileDirname}/${fileBasenameNoExtension}'",
+            "command": "clang -Xpreprocessor -fopenmp -I/opt/homebrew/opt/libomp/include -L/opt/homebrew/opt/libomp/lib -lomp -g -std=c11 '${file}' -o '${fileDirname}/${fileBasenameNoExtension}' && '${fileDirname}/.${fileBasenameNoExtension}'",
             "problemMatcher": [
                 "$gcc"
             ],
