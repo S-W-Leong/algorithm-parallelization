@@ -218,39 +218,5 @@ int main() {
         }
     }
     
-    // Summary Analysis
-    cout << "\n\n=============================================" << endl;
-    cout << "          PERFORMANCE ANALYSIS SUMMARY" << endl;
-    cout << "=============================================" << endl;
-    
-    cout << "\n1. SPEEDUP ANALYSIS:" << endl;
-    cout << "   Speedup = T_sequential / T_parallel" << endl;
-    cout << "   - Ideal speedup with P threads = P" << endl;
-    cout << "   - Actual speedup is typically less due to:" << endl;
-    cout << "     * Thread creation/management overhead" << endl;
-    cout << "     * Synchronization costs" << endl;
-    cout << "     * Memory bandwidth limitations" << endl;
-    cout << "     * Non-parallelizable portions (Amdahl's Law)" << endl;
-    
-    cout << "\n2. EFFICIENCY ANALYSIS:" << endl;
-    cout << "   Efficiency = (Speedup / P) * 100%" << endl;
-    cout << "   - Measures how well parallel resources are utilized" << endl;
-    cout << "   - 100% efficiency means perfect scaling" << endl;
-    cout << "   - Lower efficiency indicates overhead or bottlenecks" << endl;
-    
-    cout << "\n3. SCALABILITY OBSERVATIONS:" << endl;
-    cout << "   - Larger matrices generally show better speedup" << endl;
-    cout << "   - Small matrices have high overhead relative to computation" << endl;
-    cout << "   - The Jacobi method is well-suited for parallelization" << endl;
-    cout << "     because each row can be computed independently" << endl;
-    
-    cout << "\n4. AMDAHL'S LAW CONSIDERATION:" << endl;
-    cout << "   Maximum Speedup = 1 / (s + (1-s)/P)" << endl;
-    cout << "   where s = serial fraction, P = number of processors" << endl;
-    cout << "   - Convergence check and copy operations are serial" << endl;
-    cout << "   - These limit the maximum achievable speedup" << endl;
-    
-    cout << "\n=============================================" << endl;
-    
     return 0;
 }

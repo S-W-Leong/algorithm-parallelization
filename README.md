@@ -11,6 +11,16 @@ This project implements and compares sequential and parallel versions of the Jac
 - [Visualizing Results](#visualizing-results)
 - [File Descriptions](#file-descriptions)
 
+## ⚠️ Platform Note
+
+**This project is configured for macOS.** The VS Code task configuration (in `.vscode/tasks.json`) and the Python visualization script (`visualize_performance.py`) are optimized for macOS with Clang/LLVM and Homebrew-installed OpenMP. If you're using a different operating system (Linux or Windows), you may need to adjust:
+- Compiler flags in the VS Code build tasks
+- Include/library paths for OpenMP
+- Compilation commands in the visualization script
+- Binary execution paths (e.g., `.exe` extensions on Windows)
+
+Refer to the platform-specific compilation instructions in the [Building the Programs](#building-the-programs) and [Running the Programs](#running-the-programs) sections for your system.
+
 ## 🎯 Overview
 
 The Jacobi method is an iterative algorithm for solving systems of linear equations. This project demonstrates:

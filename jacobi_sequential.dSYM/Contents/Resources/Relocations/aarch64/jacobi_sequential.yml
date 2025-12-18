@@ -1,5 +1,5 @@
 ---
 triple:          'arm64-apple-darwin'
-binary-path:     '/Users/leongshiwei/SWs_Stuff/04_Career/TARUMT/DCSY2S2/PDC_Programs/PDC_OpenMP/jacobi/jacobi_sequential'
+binary-path:     '/Users/leongshiwei/SWs_Stuff/04_Career/TARUMT/DCSY2S2/PDC_Programs/jacobi/jacobi_sequential'
 relocations:     []
 ...
