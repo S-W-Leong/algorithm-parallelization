@@ -76,8 +76,11 @@ int jacobiParallel(const vector<vector<double>>& A, const vector<double>& b,
     for (int iter = 0; iter < maxIterations; iter++) {
         double maxDiff = 0.0;
         
+        // Manual reduction: each thread tracks its own max
+        vector<double> threadMaxDiff(numThreads, 0.0);
+        
         // Parallel region for computing new values
-        #pragma omp parallel for reduction(max:maxDiff) schedule(static)
+        #pragma omp parallel for schedule(static)
         for (int i = 0; i < n; i++) {
             double sigma = 0.0;
             
@@ -91,10 +94,18 @@ int jacobiParallel(const vector<vector<double>>& A, const vector<double>& b,
             // Jacobi formula: x_new[i] = (b[i] - sigma) / A[i][i]
             x_new[i] = (b[i] - sigma) / A[i][i];
             
-            // Track maximum difference for convergence check
+            // Track maximum difference for convergence check (manual reduction)
             double diff = fabs(x_new[i] - x[i]);
-            if (diff > maxDiff) {
-                maxDiff = diff;
+            int threadId = omp_get_thread_num();
+            if (diff > threadMaxDiff[threadId]) {
+                threadMaxDiff[threadId] = diff;
+            }
+        }
+        
+        // Combine partial results from all threads
+        for (int t = 0; t < numThreads; t++) {
+            if (threadMaxDiff[t] > maxDiff) {
+                maxDiff = threadMaxDiff[t];
             }
         }
         
