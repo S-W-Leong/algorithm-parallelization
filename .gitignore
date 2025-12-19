@@ -39,8 +39,6 @@ jacobi_sequential
 # Debug symbols (macOS)
 *.dSYM/
 
-
-
 # IDE and editor files
 .vscode/
 .idea/
@@ -58,8 +56,3 @@ jacobi_sequential
 
 # Environment variables
 .env
-
-
-jacobi_parallel.dSYM/*
-jacobi_sequential.dSYM/*
-
